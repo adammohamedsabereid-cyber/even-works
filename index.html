@@ -406,6 +406,35 @@ body {
 .faq-a p { color: var(--muted); font-size: 14px; padding: 0 20px 18px; }
 .faq-a code { font-family: var(--mono); font-size: .9em; background: var(--bg2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }
 
+/* ---------- 8b. contact ---------- */
+.contact-card {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+  background: linear-gradient(160deg, var(--panel), var(--panel2));
+  border: 1px solid var(--line); border-radius: var(--rad);
+  padding: 28px 30px; max-width: 660px;
+  transition: border-color .3s, box-shadow .35s, transform .3s;
+}
+.contact-card:hover {
+  border-color: #5865F2; transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(88, 101, 242, .25);
+}
+.discord-ico { width: 54px; height: 54px; color: #5865F2; flex: 0 0 auto; }
+.contact-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .3em; color: var(--muted); }
+.contact-handle {
+  font-family: var(--mono); font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700; color: var(--ink); letter-spacing: .04em;
+}
+.copy-btn {
+  margin-left: auto; font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em;
+  background: #5865F2; color: #fff; border: none; border-radius: 8px;
+  padding: 12px 20px; cursor: pointer;
+  transition: filter .25s, transform .2s, background .25s;
+}
+.copy-btn:hover { filter: brightness(1.12); transform: translateY(-2px); }
+.copy-btn.copied { background: #22C55E; }
+.contact-note { margin-top: 16px; color: var(--muted); font-size: 13.5px; }
+.contact-note b { color: var(--ink); }
+
 /* ---------- 9. footer ---------- */
 .footer {
   border-top: 1px solid var(--line);
@@ -472,6 +501,7 @@ html.reduce-motion { scroll-behavior: auto; }
     <a href="#apps">Components</a>
     <a href="#why">Why EvEn</a>
     <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
     <a class="nav-cta" href="#apps">Get the tools</a>
   </nav>
 </header>
@@ -727,12 +757,30 @@ html.reduce-motion { scroll-behavior: auto; }
     </div>
   </section>
 
+  <!-- ================= CONTACT ================= -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <span class="kicker">04 — CONTACT</span>
+      <h2>Find me on Discord<span class="accent">.</span></h2>
+      <p>Licenses, support, bug reports, feature ideas — the fastest way to reach me is Discord.</p>
+    </div>
+    <div class="contact-card reveal-up">
+      <svg class="discord-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.291.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      <div>
+        <p class="contact-label">DISCORD</p>
+        <p class="contact-handle">4u_evn</p>
+      </div>
+      <button class="copy-btn" id="copyDiscord" data-cursor aria-label="Copy Discord username 4u_evn">Copy username</button>
+    </div>
+    <p class="contact-note">Click <b>Copy username</b> → open Discord → <b>Add Friend</b> → paste. Licenses, questions, ideas — I read everything.</p>
+  </section>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <p>© 2026 <b>EvEn Works</b> — Your Device Will Thank Me.</p>
-  <p><a href="mailto:even@example.com">Contact</a> · <a href="#top">Back to top</a></p>
+  <p><a href="#contact">Contact</a> · <a href="#top">Back to top</a></p>
   <button class="motion-toggle" id="motionToggle" aria-pressed="false">MOTION: ON</button>
 </footer>
 
@@ -1201,6 +1249,25 @@ const MOTION = () => motionOn && !document.hidden;
   }));
 })();
 
+})();
+/* ---------- contact: copy Discord username ---------- */
+(() => {
+  const btn = document.getElementById("copyDiscord");
+  if (!btn) return;
+  const HANDLE = "4u_evn";
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(HANDLE);
+    } catch (_) {                                   // clipboard API blocked: fall back
+      const t = document.createElement("textarea");
+      t.value = HANDLE; document.body.appendChild(t);
+      t.select(); document.execCommand("copy"); t.remove();
+    }
+    btn.textContent = "Copied ✓"; btn.classList.add("copied");
+    setTimeout(() => {
+      btn.textContent = "Copy username"; btn.classList.remove("copied");
+    }, 1700);
+  });
 })();
 </script>
 </body>

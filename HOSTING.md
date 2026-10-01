@@ -1,20 +1,39 @@
-# Host this site FREE — 3 ways (easiest first)
+# Hosting — already live on GitHub Pages
 
-The site is plain HTML/CSS/JS — no build step, no server code. Any static
-host takes it as-is. **First, put your app .exe files in the `downloads/`
-folder** with these names so the buttons work:
+The site is published at:
+**https://adammohamedsabereid-cyber.github.io/even-works/**
+
+- Repo: `adammohamedsabereid-cyber/even-works` (public, branch `main`, root)
+- Downloads live in `downloads/` — currently `Even-Tweaker.exe`.
+  When the other apps ship, drop their .exe files in this folder and add
+  the matching `href` on each card in `index.html`.
+- To update the site: edit files, then `git add -A && git commit -m "update" && git push`
+  — GitHub Pages rebuilds automatically in ~1 minute.
+
+## Alternatives (if you ever want to move it)
+
+### Netlify Drop
+1. Go to **https://app.netlify.com/drop**
+2. Drag the whole `even-site` folder onto the page
+3. Live URL instantly; sign up free to keep + rename it
+
+### Vercel
+1. **vercel.com** → import the `even-works` repo
+2. Deploy — done.
+
+---
+
+## Files that ship
 
 ```
 downloads/
-├── E.T-Tweaks.exe
-├── E.O-Setup.exe
-├── PassVault.exe
-├── Driver-Updater.exe
-├── Even-Macro.exe
-└── Even-Stats.exe
+└── Even-Tweaker.exe   (27 MB — the one released app; license key required)
 ```
 
-(Using different names? Edit the `href` on each Download button in `index.html`.)
+The other four apps (Macro, Driver Updater, Password Vault, Stats) are
+still in development — their cards show "IN DEVELOPMENT" until their
+builds are ready.
+
 
 ---
 
